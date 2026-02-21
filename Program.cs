@@ -239,6 +239,11 @@ class Program
         OneOcr.GetOcrLineCount(instance, out long lines);
         Console.Error.WriteLine($"Recognize {lines} lines");
 
+        return CreateOcrResultDto(instance, lines);
+    }
+
+    static OcrResultDto CreateOcrResultDto(IntPtr instance, long lines)
+    {
         var resultDto = new OcrResultDto();
 
         for (long i = 0; i < lines; i++)
